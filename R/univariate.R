@@ -15,10 +15,11 @@
 
 univariate <- function(x,
                        variables = NULL,
-                       include = c("Variable", "Count", "Min", "Median",
-                                   "Mean", "Max", "Range", "St.Dev",
-                                   "Skew", "Kurt")
-                      ) {
+                       include = c(
+                         "Variable", "Count", "Min", "Median",
+                         "Mean", "Max", "Range", "St.Dev",
+                         "Skew", "Kurt"
+                       )) {
 
   # Reformat to allow processing
   x <- as.data.frame(x)
@@ -29,8 +30,10 @@ univariate <- function(x,
   # Create and fill in a matrix containing all descriptive statistics about
   # the columns
   var_desc <- as.data.frame(matrix(nrow = colnbr, ncol = 10))
-  names(var_desc) <- c("Variable", "Count", "Min", "Med", "Mean",
-                       "Max", "Range", "SD", "Skew", "Kurt")
+  names(var_desc) <- c(
+    "Variable", "Count", "Min", "Med", "Mean",
+    "Max", "Range", "SD", "Skew", "Kurt"
+  )
   var_desc[, "Variable"] <- variables
   for (i in 1:colnbr) {
     var_desc[i, "Count"] <- length(stats::na.omit(x[, i]))

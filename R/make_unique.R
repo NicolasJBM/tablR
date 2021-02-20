@@ -15,13 +15,19 @@ make_unique <- function(x) {
       dplyr::mutate_all(function(x) {
         keep_class <- class(x)
         x <- table(x)
-        if (length(x) == 0) x <- NA else
+        if (length(x) == 0) {
+          x <- NA
+        } else {
           x <- names(sort(x, decreasing = TRUE))[1]
+        }
         class(x) <- keep_class
         x
       }) %>%
       unique()
-  } else if (nrow(x) == 1) x <- x else
+  } else if (nrow(x) == 1) {
+    x <- x
+  } else {
     x <- dplyr::summarise_all(x, function(x) NA)
+  }
   return(x)
 }

@@ -26,5 +26,6 @@ Imports:
   tidyr,
   stats,
   rlang,
+  data.table,
   knitr
   
