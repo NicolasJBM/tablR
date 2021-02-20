@@ -1,4 +1,4 @@
-#' @name stat_bivariate
+#' @name bivariate
 #' @title Compute and format bivariate statistics
 #' @author Nicolas Mangin
 #' @description Generate and format a correlation table for publication.
@@ -18,12 +18,12 @@
 #' @export
 
 
-stat_bivariate <- function(x,
-                           use = "pairwise",
-                           method = "pearson",
-                           digits = 3,
-                           variables = NULL,
-                           addpval = T) {
+bivariate <- function(x,
+                      use = "pairwise",
+                      method = "pearson",
+                      digits = 3,
+                      variables = NULL,
+                      addpval = T) {
 
   # Reformat to allow processing
   x <- as.data.frame(x)

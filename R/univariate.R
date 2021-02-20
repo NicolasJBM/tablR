@@ -1,4 +1,4 @@
-#' @name stat_univariate
+#' @name univariate
 #' @title Compute and format univariate statistics
 #' @author Nicolas Mangin
 #' @description Generate a table displaying univariate statistics for all the variables included in x which are numeric.
@@ -11,12 +11,12 @@
 #' @importFrom stats na.omit
 #' @export
 
-stat_univariate <- function(x,
-                            variables = NULL,
-                            include = c("Variable", "Count", "Min", "Median",
-                                        "Mean", "Max", "Range", "St.Dev",
-                                        "Skew", "Kurt")
-                            ) {
+univariate <- function(x,
+                       variables = NULL,
+                       include = c("Variable", "Count", "Min", "Median",
+                                   "Mean", "Max", "Range", "St.Dev",
+                                   "Skew", "Kurt")
+                      ) {
 
   # Reformat to allow processing
   x <- as.data.frame(x)

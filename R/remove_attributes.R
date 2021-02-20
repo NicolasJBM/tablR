@@ -1,4 +1,4 @@
-#' @name tble_remove_attributes
+#' @name remove_attributes
 #' @title Remove all attributes
 #' @author Nicolas Mangin
 #' @description Remove all attributes of all the variables in a dataframe.
@@ -7,7 +7,7 @@
 #' @importFrom tibble as_tibble
 #' @export
 
-tble_remove_attributes <- function(x) {
+remove_attributes <- function(x) {
   x[] <- lapply(x, function(x) {
     attributes(x) <- NULL
     x

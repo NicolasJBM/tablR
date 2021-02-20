@@ -1,4 +1,4 @@
-#' @name tble_spread_gather
+#' @name spread_gather
 #' @title Complete missing pairs
 #' @author Nicolas Mangin
 #' @description Spread and gather the table so that missing pairs are added.
@@ -13,7 +13,7 @@
 #' @importFrom dplyr all_of
 #' @export
 
-tble_spread_gather <- function(x, col, val, fill) {
+spread_gather <- function(x, col, val, fill) {
   x %>%
     tidyr::pivot_wider(
       names_from = dplyr::all_of(col),

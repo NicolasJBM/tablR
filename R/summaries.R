@@ -1,4 +1,4 @@
-#' @name stat_summaries
+#' @name summaries
 #' @title Add rows or columns summaries
 #' @author Nicolas Mangin
 #' @description Add rows or columns summaries (sums or means) to a dataframe.
@@ -15,11 +15,11 @@
 #' @importFrom dplyr everything
 #' @export
 
-stat_summaries <- function(x,
-                           rows = TRUE,
-                           columns = TRUE,
-                           omit_col = NA,
-                           summary = "sum") {
+summaries <- function(x,
+                      rows = TRUE,
+                      columns = TRUE,
+                      omit_col = NA,
+                      summary = "sum") {
   if (rows) {
     y <- dplyr::select(x, -omit_col)
     if (summary == "sum") {
