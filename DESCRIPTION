@@ -18,14 +18,13 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 Imports:
-  rlang,
-  dplyr,
-  purrr,
-  tibble,
-  tidyr,
-  shiny,
-  miniUI,
-  data.table,
   psych,
+  tibble,
+  dplyr,
+  utils,
+  stargazer,
+  tidyr,
+  stats,
+  rlang,
   knitr
   

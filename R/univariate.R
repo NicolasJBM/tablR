@@ -9,6 +9,8 @@
 #' @importFrom psych skew
 #' @importFrom psych kurtosi
 #' @importFrom stats na.omit
+#' @importFrom stats median
+#' @importFrom stats sd
 #' @export
 
 univariate <- function(x,
@@ -31,14 +33,14 @@ univariate <- function(x,
                        "Max", "Range", "SD", "Skew", "Kurt")
   var_desc[, "Variable"] <- variables
   for (i in 1:colnbr) {
-    var_desc[i, "Count"] <- length(na.omit(x[, i]))
+    var_desc[i, "Count"] <- length(stats::na.omit(x[, i]))
     var_desc[i, "Min"] <- min(x[, i], na.rm = TRUE)
-    var_desc[i, "Median"] <- median(x[, i], na.rm = TRUE)
+    var_desc[i, "Median"] <- stats::median(x[, i], na.rm = TRUE)
     var_desc[i, "Mean"] <- mean(x[, i], na.rm = TRUE)
     var_desc[i, "Max"] <- max(x[, i], na.rm = TRUE)
     var_desc[i, "Range"] <- max(x[, i], na.rm = TRUE) -
       min(x[, i], na.rm = TRUE)
-    var_desc[i, "St.Dev"] <- sd(x[, i], na.rm = TRUE)
+    var_desc[i, "St.Dev"] <- stats::sd(x[, i], na.rm = TRUE)
     var_desc[i, "Skew"] <- psych::skew(x[, i], na.rm = TRUE)
     var_desc[i, "Kurt"] <- psych::kurtosi(x[, i], na.rm = TRUE)
   }

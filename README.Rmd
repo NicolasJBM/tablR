@@ -12,9 +12,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bibliogR <img src="man/figures/logo.svg" align="right" width="120" />
+# tablR <img src="man/figures/logo.svg" align="right" width="120" />
 
-Searching and Citing the Literature.
+Toolbox to Create and Embed Tables in Documents
 
 
 
@@ -25,25 +25,19 @@ Searching and Citing the Literature.
 
 ## Installation
 
-Before you can install *bibliogR* itself, you will also need to install from CRAN the following R packages:  
+Before you can install *tablT* itself, you will also need to install from CRAN the following R packages:  
 
 ```{r, eval = FALSE}
-install.packages("knitr")
-install.packages("dplyr")
-install.packages("tibble")
-install.packages("stats")
+install.packages(
+  "knitr", "rlang", "dplyr", "purrr", "tibble", "tidyr",
+  "shiny", "miniUI", "data.table", "psych", "knitr"
+)
 ```
 
-Since the package uses some functions from the *lexR* package to clean text (i.e. to force ASCII format t oexport to .bib files), you will need to install it first:  
+Then, install *tablT* from its GitHub public repository:  
 
 ```{r, eval = FALSE}
-devtools::install.github("NicolasJBM/lexR")
-```
-
-Then, install *biliogR* from its GitHub public repository:  
-
-```{r, eval = FALSE}
-devtools::install.github("NicolasJBM/fmtR")
+devtools::install.github("NicolasJBM/tablR")
 ```
 
 
@@ -55,4 +49,4 @@ devtools::install.github("NicolasJBM/fmtR")
 
 ## Toolboxes
 
-*bibliogR* requires *[lexR](https://github.com/NicolasJBM/lexR)* ans is particularly useful in combination with *[writR](https://github.com/NicolasJBM/writR)*.
+

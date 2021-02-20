@@ -1,5 +1,5 @@
-#' @name latex_long_stargazer
-#' @title Make Table Long
+#' @name long_stargazer
+#' @title Make Table Long for Latex
 #' @author Nicolas Mangin
 #' @description Create a longtable stargazer output
 #' @param ...             Arguments passed to the stargazer function.
@@ -13,16 +13,16 @@
 #' @importFrom utils capture.output
 #' @export
 
-latex_long_stargazer <- function(...,
-                                 table_caption,
-                                 table_label,
-                                 threeparttable = TRUE,
-                                 landscape = FALSE,
-                                 font_size = "small") {
+long_stargazer <- function(...,
+                           table_caption,
+                           table_label,
+                           threeparttable = TRUE,
+                           landscape = FALSE,
+                           font_size = "small") {
 
   # Capturing stargazer to hack it
-  x <- capture.output(
-    stargazer(...)
+  x <- utils::capture.output(
+    stargazer::stargazer(...)
   )
 
   # Changing tabulare environment for longtable

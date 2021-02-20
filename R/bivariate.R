@@ -12,9 +12,6 @@
 #' @importFrom psych corr.test
 #' @importFrom tibble as_tibble
 #' @importFrom dplyr select
-#' @importFrom stats median
-#' @importFrom stats sd
-#' @importFrom psych corr.test
 #' @export
 
 
@@ -70,7 +67,7 @@ bivariate <- function(x,
     is.na(r),
     NA,
     paste0(format(round(r, digits), nsmall = digits), stars)
-  ) # add r coefs
+  ) # add r coefficients
   if (addpval == T) {
     m[even, cols] <- ifelse(
       is.na(p),

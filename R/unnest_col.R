@@ -18,7 +18,7 @@ unnest_col <- function(x, col) {
   clnms <- rlang::syms(setdiff(colnames(x), as.character(col)))
   x <- data.table::as.data.table(x)
   x <- eval(
-    expr(x[, as.character(unlist(!!!col)), by = list(!!!clnms)])
+    rlang::expr(x[, as.character(unlist(!!!col)), by = list(!!!clnms)])
   )
   colnames(x) <- c(as.character(clnms), as.character(col))
   x

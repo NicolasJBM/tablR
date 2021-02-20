@@ -1,5 +1,5 @@
-#' @name latex_fit_stargazer
-#' @title Fit Table Size
+#' @name fit_stargazer
+#' @title Fit Table Size for Latex
 #' @author Nicolas Mangin
 #' @description Create a Latex tabular environment for stargazer and insert it in an adjustable table
 #' @param ...           Arguments passed to the stargazer function.
@@ -15,16 +15,16 @@
 #' @importFrom utils capture.output
 #' @export
 
-latex_fit_stargazer <- function(...,
-                                table_caption = "",
-                                table_label = "",
-                                env = "table",
-                                adjwidth = 0.75,
-                                adjheight = 0.75,
-                                space_before = "15pt",
-                                space_after = "15pt") {
-  x <- capture.output(
-    stargazer(...)
+fit_stargazer <- function(...,
+                          table_caption = "",
+                          table_label = "",
+                          env = "table",
+                          adjwidth = 0.75,
+                          adjheight = 0.75,
+                          space_before = "15pt",
+                          space_after = "15pt") {
+  x <- utils::capture.output(
+    stargazer::stargazer(...)
   )
 
   if (env == "sidewaystable") {
