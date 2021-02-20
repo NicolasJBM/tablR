@@ -1,4 +1,7 @@
-#' Faster implementation of unnest. Applicable only when the nested column is a vector (i.e. not a table or dataframe).
+#' @name col_unnest
+#' @title Unnest a column containing vectors
+#' @author Nicolas Mangin
+#' @description Faster implementation of unnest applicable only when the nested column is a vector (i.e. not a table or dataframe).
 #' @param x   tibble. database with a column to unnest.
 #' @param col character. Name of the column to unnest.
 #' @return A dataframe where all variables are discrete.
@@ -6,9 +9,10 @@
 #' @importFrom data.table as.data.table
 #' @importFrom rlang ensyms
 #' @importFrom rlang syms
+#' @importFrom rlang expr
 #' @export
 
-tble_unnest <- function(x, col) {
+col_unnest <- function(x, col) {
   x <- data.table::as.data.table(x)
   col <- rlang::ensyms(col)
   clnms <- rlang::syms(setdiff(colnames(x), as.character(col)))

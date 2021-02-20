@@ -1,4 +1,7 @@
-#' Generate and format a correlation table for publication.
+#' @name stat_bivariate
+#' @title Compute and format bivariate statistics
+#' @author Nicolas Mangin
+#' @description Generate and format a correlation table for publication.
 #' @param x            Tibble or dataframe. Numeric variables as columns, observations as rows.
 #' @param use          Character. "pairwise" is the default value and will do pairwise deletion of cases. "complete" will select just complete cases.
 #' @param method       Character. "pearson" is the default value. The alternatives to be passed to cor are "spearman" and "kendall"
@@ -24,6 +27,7 @@ stat_bivariate <- function(x,
 
   # Reformat to allow processing
   x <- as.data.frame(x)
+  x <- x[, unlist(lapply(x, is.numeric))]
 
   # Get the correlations and their significance
   ct <- psych::corr.test(x, y = NULL, use, method) # compute correlations
@@ -60,10 +64,19 @@ stat_bivariate <- function(x,
   m[even, 1] <- rep("", sum(even)) # add blank
   colnames(m) <- c("Correlations", clab) # add colnames
 
-  # Fill in the matrix with the formated correlations and significance and return a tibble.
-  m[odd, cols] <- ifelse(is.na(r), NA, paste0(format(round(r, digits), nsmall = digits), stars)) # add r coefs
+  # Fill in the matrix with the formated correlations and
+  # significance and return a tibble.
+  m[odd, cols] <- ifelse(
+    is.na(r),
+    NA,
+    paste0(format(round(r, digits), nsmall = digits), stars)
+  ) # add r coefs
   if (addpval == T) {
-    m[even, cols] <- ifelse(is.na(p), NA, paste0("(", format(round(p, digits), nsmall = digits), ")  ")) # add p-values
+    m[even, cols] <- ifelse(
+      is.na(p),
+      NA,
+      paste0("(", format(round(p, digits), nsmall = digits), ")  ")
+    ) # add p-values
   } else {
     m <- m[odd, ]
   }

@@ -1,4 +1,7 @@
-#' Add totals (sums or means) to a dataframe.
+#' @name stat_summaries
+#' @title Add rows or columns summaries
+#' @author Nicolas Mangin
+#' @description Add rows or columns summaries (sums or means) to a dataframe.
 #' @param x        Dataframe. Data to which you wish to add the totals
 #' @param rows     Logical. Whether totals should be added at the bottom of the table.
 #' @param columns  Logical. Whether totals should be added at the right-side of the table.
@@ -12,12 +15,11 @@
 #' @importFrom dplyr everything
 #' @export
 
-
-stat_totals <- function(x,
-                        rows = TRUE,
-                        columns = TRUE,
-                        omit_col = NA,
-                        summary = "sum") {
+stat_summaries <- function(x,
+                           rows = TRUE,
+                           columns = TRUE,
+                           omit_col = NA,
+                           summary = "sum") {
   if (rows) {
     y <- dplyr::select(x, -omit_col)
     if (summary == "sum") {
