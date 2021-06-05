@@ -28,7 +28,7 @@ univariate <- function(x,
   
   # Create and fill in a matrix containing all descriptive statistics about
   # the columns
-  var_desc <- as.data.frame(matrix(nrow = colnbr, ncol = 10))
+  var_desc <- as.data.frame(matrix(nrow = colnbr, ncol = 11))
   names(var_desc) <- c(
     "Variable", "Count", "Missing", "Min", "Med", "Mean",
     "Max", "Range", "SD", "Skew", "Kurt"
