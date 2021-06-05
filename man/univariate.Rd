@@ -6,15 +6,12 @@
 \usage{
 univariate(
   x,
-  variables = NULL,
-  include = c("Variable", "Count", "Min", "Median", "Mean", "Max", "Range", "St.Dev",
-    "Skew", "Kurt")
+  include = c("Variable", "Missing", "Count", "Min", "Median", "Mean", "Max", "Range",
+    "St.Dev", "Skew", "Kurt")
 )
 }
 \arguments{
 \item{x}{Tibble or dataframe. Table with only numeric variables.}
-
-\item{variables}{Character vector. Names of the variables.}
 
 \item{include}{Character vector. Names of the statistics to report: "Count", "Min", "Median", "Mean", "Max", "Range", "St.Dev","Skew" and "Kurt".}
 }
